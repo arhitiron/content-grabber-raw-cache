@@ -1,1 +1,4 @@
 .idea/
+test_redis_get_set.py
+test_simple_client.py
+test_simple_server.py

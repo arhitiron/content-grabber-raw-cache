@@ -1,7 +1,6 @@
 import json
 import logging
 import threading
-
 import time
 
 import sys
@@ -38,10 +37,11 @@ class Consumer(threading.Thread):
 
         for msg in consumer:
             val = msg.value
+            logging.log(logging.INFO, "Handle message")
             # TODO: not sure that it's a good idea work without interface, maybe will be better change implementation
             for handler in self._handlers:
                 try:
-                    handler(val["link"])
+                    handler(val)
                 except:
                     logging.log(logging.INFO, sys.exc_info())
 
